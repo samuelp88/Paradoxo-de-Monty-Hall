@@ -1,10 +1,7 @@
-﻿// Número de cenários a serem testados
-using Console;
-using System.Text;
-
+﻿using System.Text;
 
 // Configurações de cenario
-int numeroDeCenarios = 100;
+int numeroDeCenarios = 1000;
 bool deveTrocarDeAlternativa = true;
 
 // Lista com todas alternativas
@@ -68,4 +65,15 @@ foreach (var resultado in resultados)
     }
 
     System.Console.WriteLine(stringBuilder.ToString());
+}
+
+
+public static class StringExtensions
+{
+    public static string PadSides(this string str, int totalWidth, char paddingChar = ' ')
+    {
+        int padding = totalWidth - str.Length;
+        int padLeft = padding / 2 + str.Length;
+        return str.PadLeft(padLeft, paddingChar).PadRight(totalWidth, paddingChar);
+    }
 }
